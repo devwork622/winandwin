@@ -22,14 +22,14 @@
                   <div class="col-md-6">
                      <div class="form-group position-relative">
                         <label for="">FIRST NAME:</label>
-                        <span class="span-fa"><i class="fa fa-user"></i></span>
+                        <span class="span-fa top56"><i class="fa fa-user"></i></span>
                         <input type="text" name="first_name" class="" placeholder="" id="first_name">
                      </div>                     
                   </div>
                   <div class="col-md-6">
                      <div class="form-group position-relative">
                         <label for="">LAST NAME:</label>
-                        <span class="span-fa"><i class="fa fa-user"></i></span>
+                        <span class="span-fa top56"><i class="fa fa-user"></i></span>
                         <input type="text" name="last_name" class="" placeholder="" id="last_name">
                      </div>                     
                   </div>
@@ -50,7 +50,7 @@
 					   </div>
                        
 					 </div-->
-                     <span class="span-fa"><i class="fa fa-phone"></i></span>
+                     <span class="span-fa top56"><i class="fa fa-phone"></i></span>
                      <input type="text" style="height: 46px;" class="form-control" name="mobile" placeholder="" id="mobile">
                      </div>
                   </div>
@@ -64,7 +64,7 @@
                   <div class='col-md-8'>
                      <div class="form-group position-relative">
                         <label for="" style="margin-top: 5px;">EMAIL ADDRESS:</label>
-                        <span class="span-fa"><i class="fa fa-envelope"></i></span>
+                        <span class="span-fa top56"><i class="fa fa-envelope"></i></span>
                         <input type="email" class="" placeholder="" name="email" id="email">
 
                      </div>
@@ -80,7 +80,7 @@
                         <div class="verify-code" style="display: none;">
                            <div class="form-group position-relative">
                            <label for="" class="" >ENTER CODE:</label>
-                           <span class="span-fa"><i class="fa fa-lock"></i></span>
+                           <span class="span-fa top56"><i class="fa fa-lock"></i></span>
                            <span class="span-fa-right"><i class="fa fa-level-down fa-rotate-90"></i></span>
                            <input type="text" class="form-control " style="height: 46px;padding-right: 40px;" name="verify_code" placeholder="" id="verify_code" >
                            <small>(Press enter to verify code)</small>
@@ -103,7 +103,7 @@
                   <div class='col-md-12'>
                      <div class="form-group position-relative">
                         <label for="">Password:</label>
-                        <span class="span-fa"><i class="fa fa-lock"></i></span>
+                        <span class="span-fa top56"><i class="fa fa-lock"></i></span>
                         <input type="password" class="" name="password" placeholder="" id="password" rel="gp" data-size="8" data-character-set="a-z,A-Z,0-9,#">
                      </div>
                   </div>
@@ -165,7 +165,7 @@
       font-size: 12px;
       font-weight: 400 !important;
    }
-
+   .top56 { top:56px !important; }
 </style>
 @endpush
 @push('js')
