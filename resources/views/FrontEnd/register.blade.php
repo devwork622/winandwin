@@ -80,7 +80,7 @@
                         <div class="verify-code" style="display: none;">
                            <div class="form-group position-relative">
                            <label for="" class="" >ENTER CODE:</label>
-                           <span class="span-fa top56"><i class="fa fa-lock"></i></span>
+                           <span class="span-fa"><i class="fa fa-lock"></i></span>
                            <span class="span-fa-right"><i class="fa fa-level-down fa-rotate-90"></i></span>
                            <input type="text" class="form-control " style="height: 46px;padding-right: 40px;" name="verify_code" placeholder="" id="verify_code" >
                            <small>(Press enter to verify code)</small>
