@@ -1,0 +1,138 @@
+.results-body {
+    padding: 10px 200px;
+}
+.main-item {
+    height: 190px;
+    border-radius: 30px;
+    margin: 0 auto -30px;
+    width: calc(100% - 60px);
+    overflow: hidden;
+    background-color: #eee;
+    position: relative;
+    background-color: #33b5f7;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+.main-item>h2 {
+    font-size: 20.5px;
+    color: #fff;
+    font-family: MohrRounded-SemiBold;
+    display: flex;
+    justify-content: center;
+}
+
+.jackpot-bar {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: stretch;
+    padding: 14px 0;
+    border-radius: 32px;
+    height: 64px;
+    direction: ltr;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
+}
+
+.jackpot-bar>span {
+    display: inline-block;
+    flex: 1;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    font-family: MohrRounded-SemiBold;
+    line-height: 100%;
+    padding: 18px 0 14px;
+    position: relative;
+}
+
+.jackpot-bar>span:not(:first-of-type):before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%);
+    width: 1px;
+    background-color: rgb(0, 0, 0);
+}
+.other-item {
+    padding: 50px 30px 30px;
+    border-style: solid;
+    border-radius: 30px;
+    border-width: 3px;
+    border-color: transparent;
+    transition-duration: .2s;
+    height: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    box-shadow: 0 3px 4px #0000001a;
+}
+.other-item:hover {
+    border: solid 3px #33b5f7;
+}
+.other-item>h3 {
+    display: flex;
+    justify-content: center;
+}
+.text--totals>h5 {
+    display: flex;
+    justify-content: center;
+}
+.result-btn {
+    background-color: #33b5f7;
+    color: #fff;
+    height: 64px;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 32px;
+    width: 100%;
+}
+.results-title{
+    display: flex;
+    justify-content: center;
+    padding: 50px 0px;
+}
+@media (min-width: 1440px) {
+    .col-xxl-4 {
+        max-width: 33.33% !important;
+    }
+}
+@media (max-width: 1670px) {
+    .col-xxl-4 {
+        min-width: 50% !important;
+    }
+}
+.weekly-live-stream {
+    padding: 50px 300px;
+}
+.stream-title {
+    display: flex;
+    justify-content: center;
+}
+
+.stream-place {
+    padding: 30px 10px;
+    background-color: #33b5f7;
+    width: 100%;
+    border-radius: 32px;
+}
+.stream-place-items {
+    padding: 50px;
+    color: #fff;
+    font-family: cursive;
+}
+.stream-place-item1 {
+    color: red;
+}
+.stream-content {
+    padding: 20px;
+}
