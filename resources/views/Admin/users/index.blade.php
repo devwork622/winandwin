@@ -1,77 +1,99 @@
 @extends('Admin.layout.layout')
-@section('title', 'Admin Login')
+@section('title', 'User Management')
+@section('sub_title', 'Users List')
 @section('content')
-<section class="inner-page-banner has_bg_image" data-background="{{asset('assets/images/inner-page-bg.jpg')}}">
-   <div class="container">
-      <div class="row">
-         <div class="col-lg-12">
-            <div class="inner-page-banner-area">
-               <h1 class="page-title">Users List</h1>
-            </div>
-         </div>
-      </div>
-   </div>
-</section>
-<div class="container login-mid-container"  >
-   <div class="row justify-content-center ">
-      <div class="col-lg-12 col-md-12 col-sm-12 text-right " style="margin: 10px;">
-         <a href="{{route('admin-users-add')}}" class="btn btn-primary">Add User</a>
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-12">
-         <div class="login-registration-area">
-           <div class="table-responsive">           
-                 <table class="table">
-                   <thead>
-                     <tr>
-                       <th scope="col">#</th>
-                       <th scope="col">Name</th>
-                       <th scope="col">Email</th>
-                       <th scope="col">Mobile</th>
-                       <th scope="col">Credit</th>
-                       <th scope="col">Birth Date</th>
-                       <th scope="col">Gender</th>
-                       <th scope="col">Action</th>
-                     </tr>
-                   </thead>
-                   <tbody>
-                     @foreach($users as $user)
-                     <tr>
-                       <th scope="row">{{$user->id}}</th>
-                       <td>{{$user->first_name}} {{$user->last_name}}</td>
-                       <td>{{$user->email}}</td>
-                       <td>{{$user->mobile}}</td>
-                       <td>{{$user->credit}}</td>
-                       <td>{{$user->date_of_birth}}</td>
-                       <td>{{$user->gender}}</td>
-                       <td>
-                          <a href="">Edit</a>
-                       </td>
-                     </tr>
-                     @endforeach
-                     
-                   </tbody>
-                 </table>
-               </div>
+<div>
+   <div class="alert alert-secondary mx-4" style="display: none;" role="alert">
+        <span class="text-white">
+        </span>
+    </div>
 
-         </div>
-      </div>
-   </div>
+     <div class="row">
+        <div class="col-12">
+            <div class="card mb-4 mx-4">
+                <div class="card-header pb-0">
+                    <div class="d-flex flex-row justify-content-between">
+                        <div>
+                            <h5 class="mb-0">All Users</h5>
+                        </div>
+                        <a href="{{route('admin-users-add')}}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New User</a>
+                    </div>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0" id="data_table">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        ID
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Name
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Email
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Mobile
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Birth Date
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($users as $user) 
+                                <tr class="tr_{{$user->id}}">
+                                    <td class="ps-4">
+                                        <p class="text-xs font-weight-bold mb-0">{{$user->id}}</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">{{$user->first_name}} {{$user->last_name}}</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">{{$user->email}}</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">{{$user->mobile}}</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">{{!empty($user->date_of_birth)?date('d M, Y',strtotime($user->date_of_birth)):''}}</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="{{route('admin-users-edit',['id' => $user->id])}}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
+                                            <i class="fas fa-user-edit text-secondary"></i>
+                                        </a>
+                                        <a href="javascript:;" class="delete-user" data-id="{{$user->id}}" data-bs-toggle="tooltip" data-bs-original-title="Delete user" >
+                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                               
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
 @stop
+@push('css')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
+@endpush
 @push('js')
 <script type="text/javascript">
-   var from_mobile = "{{ old('from_mobile') }}";
-   if(from_mobile == '1'){
-      $('.nav-tabs a[href="#registration"]').tab('show');
-   }
+    var REMOTE_DELETE_URL = "{{url('admin/users/delete')}}";
+    
 </script>
-<script src="{{ asset('/js/login.js') }}" ></script>
-@endpush
-@push('css')
-<style type="text/css">
-   .login-header h2{
-      font-size: 40px;
-      margin-bottom: 25px;
-   }
-</style>
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+<script src="{{ asset('/js/admin/user-list.js?t='.strtotime(now())) }}" ></script>
 @endpush

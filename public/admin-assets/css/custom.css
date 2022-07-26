@@ -1,0 +1,56 @@
+label.error {
+    color: red !important;
+    font-size: 12px;
+    font-weight: 400 !important;
+}
+
+.alert .close {
+    background: none;
+    color: #fff;
+    border: 0px;
+}
+
+.alert {
+    color: #fff;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+    text-align: center;
+}
+
+table.dataTable tbody th, table.dataTable tbody td {
+    border-bottom-color :#e9ecef;    
+}
+.dataTables_info,.dataTables_paginate {
+    color: #67748e !important;
+    font-size: .875rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: #67748e!important;
+    font-size: .875rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    color: #67748e!important;
+}
+
+table.dataTable.no-footer {
+    border:1px solid #e9ecef!important ;
+}
+
+.dataTables_wrapper .dataTables_filter input, .dataTables_wrapper .dataTables_length select {
+     border:1px solid #e9ecef ;
+     color: #67748e !important;
+    
+}
+.dataTables_wrapper { padding: 15px 0px 15px 0px ; }
+.dataTables_length { padding-left: 25px; }
+.dataTables_filter { padding-right: 25px; }
+.dataTables_info { padding-left: 25px; padding-top: 15px !important;  }
+.dataTables_paginate { padding-right: 25px; padding-top: 10px !important; line-height: 1; }
+.dataTables_length label {
+    color: #67748e !important;
+    font-size: .875rem;
+    font-weight: normal;
+}

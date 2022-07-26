@@ -104,19 +104,20 @@ class UserController extends Controller
         
     }
 
-	// public function check_email_update(Request $request){
+	public function check_email_update(Request $request){
         
- //        $email = $request->input('email');
- //        $return_val = true;
- //        if(!empty($email)) {
- //            $user_model = new User;
- //            $user = $user_model->check_email($email);
- //            if(!empty($user)){
- //                $return_val = false;
- //            }
- //        }
- //        return response()->json($return_val);
- //    }
+        $email = $request->input('email');
+        $return_val = true;
+        $id = $request->input('id');
+        if(!empty($email)) {
+            $user_model = new User;
+            $user = $user_model->check_email($email,$id);
+            if(!empty($user)){
+                $return_val = false;
+            }
+        }
+        return response()->json($return_val);
+    }
 
     public function check_mobile_update(Request $request){
         $mobile = $request->input('mobile');

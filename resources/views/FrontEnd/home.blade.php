@@ -42,7 +42,15 @@
           <div class="col-xl-4">
             <div class="timer-content">
               <h3 class="title">Next Draw</h3>
-              <h4>Sunday, 29th July 9PM UAE Time</h4>
+              @if(!empty($draw_date))
+              <h4>{{date('l, jS F h:i A',strtotime($draw_date))}} UAE Time</h4>
+              @php
+                $d = date('d',strtotime($draw_date));
+                $m = date('m',strtotime($draw_date));
+                $y = date('Y',strtotime($draw_date));
+              @endphp
+              @endif
+
               <p>Sales close at 8:30PM UAE Time</p>
             </div>
           </div>
@@ -222,6 +230,17 @@
 @endpush
 @push('js')
 <script>
+
+  var currentDate = new Date();
+  var futureDate = new Date('{{$y}}', '{{$m - 1}}', '{{$d}}', 0, 0, 0);
+  var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+    var clock = $('.clock').FlipClock(diff, {
+      clockFace: 'DailyCounter',
+      countdown: true
+    });
+ 
+
+
 var owl = $('.owl-carousel');
 owl.owlCarousel({
     loop:true,

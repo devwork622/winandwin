@@ -73,15 +73,15 @@
                      <div class="form-group">
                         <div class="verify-code-btn">
                            <label for="" class="" >&nbsp;</label>                        
-                           <button type='button' id="email_verify_btn" class='btn verify_btn' >VERIFY</button>
-                           <button id="email_verify_btn_loader" class="btn verify_btn" disabled style="display:none;" >VERIFY <i class="fa fa-spinner fa-spin"></i></button>                           
+                           <button type='button' id="email_verify_btn" class='btn verify_btn' style="padding: 0px;" >VERIFY</button>
+                           <button id="email_verify_btn_loader" class="btn verify_btn" disabled style="display:none;padding: 0px;" >VERIFY <i class="fa fa-spinner fa-spin"></i></button>                           
                         </div>
                         
                         <div class="verify-code" style="display: none;">
                            <div class="form-group position-relative">
                            <label for="" class="" >ENTER CODE:</label>
-                           <span class="span-fa"><i class="fa fa-lock"></i></span>
-                           <span class="span-fa-right"><i class="fa fa-level-down fa-rotate-90"></i></span>
+                           <span class="span-fa" style="top:54px"><i class="fa fa-lock"></i></span>
+                           <span class="span-fa-right" style="top:40px"><i class="fa fa-level-down fa-rotate-90"></i></span>
                            <input type="text" class="form-control " style="height: 46px;padding-right: 40px;" name="verify_code" placeholder="" id="verify_code" >
                            <small>(Press enter to verify code)</small>
                            <label id="verify-code-error-lbl" class="error-2" for="verify_code"></label>
@@ -90,7 +90,7 @@
 
                         <div class="verified-code-btn" style="display: none;">
                            <label for="" class="" >&nbsp;</label>                        
-                           <button type='button'  class='btn verify_btn '  >VERIFIED</button>   
+                           <button type='button'  class='btn verify_btn ' style="padding: 0px;"  >VERIFIED</button>   
                         </div>
 
                         

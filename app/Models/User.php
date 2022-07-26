@@ -29,6 +29,10 @@ class User extends Authenticatable
         'credit',
         'role',
         'paypal_email',
+        'gender',
+        'date_of_birth',
+        'nationality_id',
+        'country_id'
     ];
 
     /**
@@ -83,8 +87,12 @@ class User extends Authenticatable
     }
 
 
-    public function check_email($email){
-        $user = User::select("*")->where('email',$email)->first();
+    public function check_email($email,$id = ''){
+        $user = User::select("*")->where('email',$email);
+        if(!empty($id)){
+            $user = $user->where('id','<>',$id);
+        }
+        $user = $user->first();
         if(!empty($user)){
             return $user;
         }

@@ -34,7 +34,7 @@
                      </div>
                      <div class="content"  style='display: table-cell;vertical-align: middle;'>
                         <h4>WIN&WIN Powerball</h4>
-                        <span class="amount">AED  {{ 40*$_REQUEST['quantity'] }}</span>
+                        <span class="amount">USD  {{ env('TICKET_AMOUNT')*$_REQUEST['quantity'] }}</span>
                      </div>
                   </div>
                   <div class="right text-right">
@@ -91,7 +91,8 @@
                            </div>
                            <div class="play-card-footer">
                               <p class="play-card-footer-text">Selected Numbers:</p>
-                              <div class='selected-numbers selected_number{{ $i }}'></div>
+                              <div class='selected-numbers selected_number{{ $i }}' ></div>
+                              <input type="hidden" form="checkoutForm" id="selected_number{{ $i }}" name="selected_number{{ $i }}" value="" >
                            </div>
                         </div>
                      </div>
@@ -109,7 +110,7 @@
                 <div class="content">
                   <p>
                     <span>{{ $_REQUEST['quantity'] }} draw  ticket:</span>
-                    <span class="amount">{{ $_REQUEST['quantity'] }} x 40</span>
+                    <span class="amount">{{ $_REQUEST['quantity'] }} x $ {{ env('TICKET_AMOUNT') }}</span>
                   </p>
                   
                 </div>
@@ -117,7 +118,7 @@
 				{{ Form::open(array('url' => url('checkout'),'id'=>'checkoutForm')) }}
 
                   <button href="#" class="single-cart-btn">
-                    <span class="single-cart-amount">{{ 40*$_REQUEST['quantity'] }}</span>
+                    <span class="single-cart-amount">$ {{ env('TICKET_AMOUNT')*$_REQUEST['quantity'] }}</span>
                     add to cart
                   </button>
 				{{ Form::close() }}
@@ -134,10 +135,11 @@
                <div class='col-md-4'>
                   <img src="{{ url('pencil.png') }}" style='box-shadow: 26px 19px 46px 18px #00000059;border-radius: 30px;'>
                </div>
+
                <div class='col-md-4' style='display: table;'>
                   <div style='display: table-cell;vertical-align: middle;'>
                      <h3>Pen's for a brighter future</h3>
-                     <h3 style='padding: 20px 0px;'>AED 40</h3>
+                     <h3 style='padding: 20px 0px;'>USD {{env('TICKET_AMOUNT')}}</h3>
                      <p  style='padding-bottom: 20px'>Buy a Pen to enter the Draw</p>
                      <h3>SELECT QUANTITY</h3>
                      {{ Form::open(array('url' => url('buy-now'))) }}
@@ -150,7 +152,7 @@
                            <button class="btn button-buy-action" onclick="calculateTotal('+')" type="button">+</button>
                         </div>
                      </div>
-                     <h3>TOTAL: <span class='total'>AED 40</span></h3>
+                     <h3>TOTAL: <span class='total'>USD {{env('TICKET_AMOUNT')}}</span></h3>
                      <button style='width: 100%;' class="btn button-buy-action" type="submit">Next</button>
                      {{ Form::close() }}
                   </div>
@@ -276,6 +278,7 @@
 <script>
    function calculateTotal(type) {
     var total = Number($('#total').val());
+    var ticket_amount = Number("{{env('TICKET_AMOUNT')}}");
     if (type == '+') {
         $('#total').val(total + 1);
     } else {
@@ -283,7 +286,7 @@
             $('#total').val(total - 1);
         }
     }
-    $('.total').html("AED " + $('#total').val() * 40);
+    $('.total').html("USD " + $('#total').val() * ticket_amount);
 }
 $('.action_label').click(function() {
 	var parent = $(this).attr('data-parent');
@@ -356,6 +359,7 @@ function calculateFinalNumer(parent){
 	  selected.push(radioValue);
 	}
     $('.selected_number' + parent).html(selected.toString());
+    $('#selected_number' + parent).val(selected.toString());
 }
 function quickPickAll(){
 	var quantity = $("#quantity").val();

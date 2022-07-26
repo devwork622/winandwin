@@ -6,12 +6,20 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Session;
 use App\Models\User;
+use App\Models\Draw;
 use Auth;
 
 class HomeController extends Controller
 {
     public function index(){
-		return view('FrontEnd.home');
+    	$draw_date = '';
+    	$current_draw =  Draw::where('is_current','1')->orderBy('created_at','desc')->first();
+			
+		if(!empty($current_draw)) {
+			$draw_date = $current_draw->draw_date; 
+		}
+
+		return view('FrontEnd.home',compact('draw_date'));
 	}
 	public function buyNow(){
 		return view('FrontEnd.buy-now');

@@ -39,22 +39,11 @@ Route::any('terms-and-conditions', 'App\Http\Controllers\FrontEnd\HomeController
 Route::any('participate-responsibly', 'App\Http\Controllers\FrontEnd\HomeController@participateResponsibly');
 Route::any('game-rules', 'App\Http\Controllers\FrontEnd\HomeController@gamerules');
 
-Route::get('admin/', 'App\Http\Controllers\Admin\HomeController@index')->name('admin-login');
-Route::post('submit-admin-login', 'App\Http\Controllers\Auth\LoginController@submitAdminLogin')->name('submit-admin-login');
-Route::group(['middleware' => ['auth','isAdmin']], function () {
-
-  Route::get('admin/dashboard', 'App\Http\Controllers\Admin\HomeController@dashboard')->name('admin-dashboard');
-
-  Route::get('admin/users', 'App\Http\Controllers\Admin\UserController@index')->name('admin-users');
-  Route::get('admin/users/add', 'App\Http\Controllers\Admin\UserController@add')->name('admin-users-add');
- 
-
-});
 
 Route::group(['middleware' => ['auth']], function () {        
   Route::get('my-profile', 'App\Http\Controllers\FrontEnd\UserController@my_profile')->name('my-profie');
   Route::post('update-profile', 'App\Http\Controllers\FrontEnd\UserController@update_profile')->name('update-profie');
-  //Route::get('check-email-update', 'App\Http\Controllers\FrontEnd\UserController@check_email_update');
+  Route::get('check-email-update', 'App\Http\Controllers\FrontEnd\UserController@check_email_update');
   Route::get('check-mobile-update', 'App\Http\Controllers\FrontEnd\UserController@check_mobile_update');
   Route::post('change-password', 'App\Http\Controllers\FrontEnd\UserController@change_password')->name('change-password');
 

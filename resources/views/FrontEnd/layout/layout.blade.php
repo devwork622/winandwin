@@ -123,8 +123,8 @@
                 @else
                 <li class="menu_has_children my-profile-menu"><a href="#0">My Account</a>
                   <ul class="sub-menu">
-                    <li><a href="javascript:">My Profile</a></li>
-                    <li><a href="javascript:">Add Funds</a></li>                    
+                    <li><a href="{{ route('my-profie') }}">My Profile</a></li>
+                    <li><a href="{{ route('add-credit') }}">Add Funds</a></li>                    
                   </ul>
                 </li>                
                 @endif
@@ -277,13 +277,6 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script>
-    var currentDate = new Date();
-	var futureDate = new Date(2022, 06, 29, 21, 0, 0);
-	var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
-    var clock = $('.clock').FlipClock(diff, {
-      clockFace: 'DailyCounter',
-      countdown: true
-    });
     jQuery(document).ready(function () {
       jQuery('#vmap').vectorMap({
         map: 'world_en',
